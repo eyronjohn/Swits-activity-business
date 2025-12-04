@@ -1,149 +1,35 @@
 <?php
+// database/seeders/ProductsSeeder.php
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Support\Facades\DB;
+use App\Models\Product;
 use Illuminate\Database\Seeder;
 
 class ProductsSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        DB::table('products')->insert([
-            [
-                'category_id' => 1,
-                'name' => 'Carbouy (20 Liters)',
-                'price' => 600.00
-            ],
-            [
-                'category_id' => 1,
-                'name' => 'Refill per Liter',
-                'price' => 30.00
-            ],
-            [
-                'category_id' => 1,
-                'name' => '3.4 L Gallon',
-                'price' => 145.00
-            ],
-            [
-                'category_id' => 1,
-                'name' => '250 ML Bottle',
-                'price' => 35.00
-            ],
-            [
-                'category_id' => 1,
-                'name' => '1 L Bottle',
-                'price' => 50.00
-            ],
-            // category 2
-            [
-                'category_id' => 4,
-                'name' => 'Carbouy (20 Liters)',
-                'price' => 500.00
-            ],
-            [
-                'category_id' => 4,
-                'name' => 'Refill per Liter',
-                'price' => 25.00
-            ],
-            [
-                'category_id' => 4,
-                'name' => '3.4 L Gallon',
-                'price' => 125.00
-            ],
-            [
-                'category_id' => 4,
-                'name' => '250 ML Bottle',
-                'price' => 40.00
-            ],
-            // category 3
-            [
-                'category_id' => 7,
-                'name' => 'Carbouy (20 Liters)',
-                'price' => 1000.00
-            ],
-            [
-                'category_id' => 7,
-                'name' => 'Refill per Liter',
-                'price' => 50.00
-            ],
-            [
-                'category_id' => 7,
-                'name' => '3.4 L Gallon',
-                'price' => 210.00
-            ],
-            [
-                'category_id' => 7,
-                'name' => '1 L Pet Bottle',
-                'price' => 65.00
-            ],
-            [
-                'category_id' => 7,
-                'name' => '1 L Premium Handy Bottle',
-                'price' => 125.00
-            ],
-            // category 4
-            [
-                'category_id' => 8,
-                'name' => 'Carbouy (20 Liters)',
-                'price' => 960.00
-            ],
-            [
-                'category_id' => 8,
-                'name' => 'Refill per Liter',
-                'price' => 48.00
-            ],
-            [
-                'category_id' => 8,
-                'name' => '3.4 L Gallon',
-                'price' => 170.00
-            ],
-            [
-                'category_id' => 8,
-                'name' => '1 L Pet Bottle',
-                'price' => 60.00
-            ],
-            // category 5
-            [
-                'category_id' => 11,
-                'name' => 'Carbouy (20 Liters)',
-                'price' => 1400.00
-            ],
-            [
-                'category_id' => 11,
-                'name' => 'Refill per Liter',
-                'price' => 70.00
-            ],
-            [
-                'category_id' => 11,
-                'name' => '3.4 L Gallon',
-                'price' => 270.00
-            ],
-            [
-                'category_id' => 11,
-                'name' => '1 L Handy Bottle',
-                'price' => 135.00
-            ],
-            // category 6
-            [
-                'category_id' => 11,
-                'name' => 'Refill per Liter',
-                'price' => 30.00
-            ],
-            [
-                'category_id' => 11,
-                'name' => '3.4 L Gallon',
-                'price' => 270.00
-            ],
-            [
-                'category_id' => 14,
-                'name' => '1L Neck Bottle',
-                'price' => 50.00
-            ],
-        ]);
+        $products = [
+            ['Chocolate Chip Cookies', 'Crispy edges with soft center, premium chocolate chunks', 150.00, 'https://images.unsplash.com/photo-1577968897966-7d3c5e2c0f46?w=400'],
+            ['Oatmeal Raisin Cookies', 'Chewy oatmeal cookies with sweet raisins', 120.00, 'https://images.unsplash.com/photo-1606890658317-7d14490b76fd?w=400'],
+            ['Matcha Green Tea Cookies', 'Delicate matcha flavor with subtle sweetness', 180.00, 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400'],
+            ['Red Velvet Cookies', 'Soft red velvet with cream cheese filling', 200.00, 'https://images.unsplash.com/photo-1615484471828-9f2f9761d0d4?w=400'],
+            ['Peanut Butter Cookies', 'Classic crunchy peanut butter cookies', 130.00, 'https://images.unsplash.com/photo-1579373590356-8a512b1b6e5e?w=400'],
+            ['Traditional Baguette', 'Freshly baked crusty French baguette', 80.00, 'https://images.unsplash.com/photo-1558642452-4ecc8d711a7c?w=400'],
+            ['Pandesal', 'Soft Filipino sweet bread rolls', 45.00, 'https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400'],
+            ['Brioche Loaf', 'Rich buttery French bread', 250.00, 'https://images.unsplash.com/photo-1588717757636-9b126d54b9dd?w=400'],
+            ['Garlic Bread', 'Fresh bread with garlic butter spread', 120.00, 'https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400'],
+            ['Cinnamon Rolls', 'Soft rolls with cream cheese icing', 220.00, 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400']
+        ];
+
+        foreach ($products as $product) {
+            Product::create([
+                'name' => $product[0],
+                'description' => $product[1],
+                'price' => $product[2],
+                'image' => $product[3]
+            ]);
+        }
     }
 }
